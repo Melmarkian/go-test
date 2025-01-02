@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go + HTMX Example</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+        }
+        .btn {
+            padding: 0.5em 1em;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Go + HTMX Example</h1>
+    <p>Click the button below to load content dynamically with htmx:</p>
+    <button class="btn" hx-get="/update" hx-target="#content">Load Content</button>
+    <div id="content" style="margin-top: 1em; border: 1px solid #ccc; padding: 1em;">
+        <!-- Dynamic content will appear here -->
+    </div>
+</body>
+</html>
