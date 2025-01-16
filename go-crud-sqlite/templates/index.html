@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Validierung mit HTMX und SQLite</title>
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+</head>
+<body>
+    <h1>Registrierung mit Live-Validierung</h1>
+    
+    <!-- Registrierungsformular -->
+    <form hx-post="/register" hx-target="#register-feedback">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label for="email">E-Mail:</label>
+        <input 
+            type="email" 
+            name="email" 
+            required
+            hx-post="/validate-email"
+            hx-trigger="keyup changed delay:500ms"
+            hx-target="#email-feedback"
+        >
+        <div id="email-feedback"></div>
+        
+        <br><button type="submit">Registrieren</button>
+    </form>
+    
+    <div id="register-feedback"></div>
+</body>
+</html>
